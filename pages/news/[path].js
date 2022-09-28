@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import styles from "../../styles/News.module.css";
 import { handler } from "../api";
 import Head from "next/head";
+import Link from "next/link";
 
 const API_KEY = "P8H9hhLQ9YSdfsYsFflizyVIBbttDaFj";
 const News = ({ results, title }) => {
@@ -18,24 +19,30 @@ const News = ({ results, title }) => {
                 <div className="newsContainer">
                     {results.map(r => {
                         return (
-                            <a href={r.url} key={r.uri} target="blank">
-                                <div className={styles.news}>
-                                    <div className={styles.news_content}>
-                                        <span className={styles.type}>
-                                            {r.section.toUpperCase()}
-                                        </span>
-                                        <h3 className={styles.title}>
-                                            {r.title}
-                                        </h3>
-                                        <p>{r.abstract}</p>
-                                        <small className={styles.news_footer}>
-                                            <strong>By:</strong> {r.byline}
-                                            <strong>Published On:</strong>{" "}
-                                            {r.published_date}
-                                        </small>
+                            <Link href={r.url} key={r.uri} target="blank">
+                                <a>
+                                    <div className={styles.news}>
+                                        <div className={styles.news_content}>
+                                            <span className={styles.type}>
+                                                {r.section.toUpperCase()}
+                                            </span>
+                                            <h3 className={styles.title}>
+                                                {r.title}
+                                            </h3>
+                                            <p>{r.abstract}</p>
+                                            <small
+                                                className={styles.news_footer}
+                                            >
+                                                <strong>By:</strong> {r.byline}
+                                                <strong>
+                                                    Published On:
+                                                </strong>{" "}
+                                                {r.published_date}
+                                            </small>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </Link>
                         );
                     })}
                 </div>

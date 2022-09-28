@@ -47,10 +47,20 @@ ul.nav li {
     font-size: 18px;
     margin: 15px 0;
     padding: 5px;
-    color: #0070f3;
+    color: #272727;
+    font-weight: bold;
+    position: relative;
 }
 
-ul.nav li:hover {
-    text-decoration: underline;
-    font-weight: bold;
+ul.nav li::after {
+    transition: all 2s;
+}
+
+ul.nav li:hover::after {
+    content: "";
+    width: 100%;
+    border-bottom: 3px solid #272727;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
 }

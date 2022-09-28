@@ -9,6 +9,14 @@
     justify-content: space-between;
 }
 
+.news:hover {
+    border-color: #009fe3;
+}
+
+.news:hover .title {
+    color: #004664;
+}
+
 .media {
     position: relative;
     width: 200px;

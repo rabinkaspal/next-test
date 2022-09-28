@@ -4,6 +4,7 @@ import Image from "next/image";
 import Router, { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState("");
@@ -32,7 +33,10 @@ export default function Home() {
 
                 <main className={styles.main}>
                     <h1 className={styles.title}>
-                        <a href="https://nytimes.com">NYTimes</a> News
+                        <Link href="https://nytimes.com">
+                            <a>NYTimes</a>
+                        </Link>{" "}
+                        News
                     </h1>
 
                     <p className={styles.description}>
@@ -61,29 +65,41 @@ export default function Home() {
                     </div>
 
                     <div className={styles.grid}>
-                        <a href="/news/top-stories" className={styles.card}>
-                            <h2>Top Stories &rarr;</h2>
-                            <p>
-                                Find in-depth information about Next.js features
-                                and API.
-                            </p>
-                        </a>
+                        <Link href="/news/top-stories">
+                            <a>
+                                <div className={styles.card}>
+                                    <h2>Top Stories &rarr;</h2>
+                                    <p>
+                                        Find in-depth information about Next.js
+                                        features and API.
+                                    </p>
+                                </div>
+                            </a>
+                        </Link>
 
-                        <a href="/news/popular" className={styles.card}>
-                            <h2>Popular &rarr;</h2>
-                            <p>
-                                Learn about Next.js in an interactive course
-                                with quizzes!
-                            </p>
-                        </a>
+                        <Link href="/news/popular">
+                            <a>
+                                <div className={styles.card}>
+                                    <h2>Popular &rarr;</h2>
+                                    <p>
+                                        Learn about Next.js in an interactive
+                                        course with quizzes!
+                                    </p>
+                                </div>
+                            </a>
+                        </Link>
 
-                        <a href="/section" className={styles.card}>
-                            <h2>Sections &rarr;</h2>
-                            <p>
-                                Learn about Next.js in an interactive course
-                                with quizzes!
-                            </p>
-                        </a>
+                        <Link href="/section">
+                            <a>
+                                <div className={styles.card}>
+                                    <h2>Sections &rarr;</h2>{" "}
+                                    <p>
+                                        Learn about Next.js in an interactive
+                                        course with quizzes!
+                                    </p>
+                                </div>
+                            </a>
+                        </Link>
                     </div>
                 </main>
 

@@ -14,9 +14,7 @@ const NotFound = () => {
             <main>
                 <h1>404: Not Found</h1>
                 <p>Page not found. Try different page.</p>
-                <a href="#" onClick={() => router.back()}>
-                    &larr; Go back
-                </a>
+                <button onClick={() => router.back()}>&larr; Go back</button>
             </main>
             <style jsx>{`
                 h1 {

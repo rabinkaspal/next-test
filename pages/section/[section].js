@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import styles from "../../styles/News.module.css";
 import Image from "next/image";
 import { handler } from "../api";
+import Link from "next/link";
 
 const API_KEY = "P8H9hhLQ9YSdfsYsFflizyVIBbttDaFj";
 const SECTIONS_URL = `https://api.nytimes.com/svc/news/v3/content/section-list.json?api-key=${API_KEY}`;
@@ -19,33 +20,37 @@ const Section = ({ results, section }) => {
                     );
 
                     return (
-                        <a href={r.url} key={r.uri} target="blank">
-                            <div className={styles.news}>
-                                <div className={styles.news_content}>
-                                    <span className={styles.type}>
-                                        {r.section?.toUpperCase()}
-                                    </span>
-                                    <h3 className={styles.title}>{r.title}</h3>
-                                    <p>{r.abstract}</p>
-                                    <small className={styles.news_footer}>
-                                        <strong>By:</strong> {r.byline}
-                                        <strong>Published On:</strong>{" "}
-                                        {r.published_date}
-                                    </small>
-                                </div>
-
-                                {media && (
-                                    <div className={styles.media}>
-                                        <Image
-                                            src={media.url}
-                                            alt={media.caption}
-                                            layout="fill"
-                                            objectFit="cover"
-                                        />
+                        <Link href={r.url} key={r.uri} target="blank">
+                            <a>
+                                <div className={styles.news}>
+                                    <div className={styles.news_content}>
+                                        <span className={styles.type}>
+                                            {r.section?.toUpperCase()}
+                                        </span>
+                                        <h3 className={styles.title}>
+                                            {r.title}
+                                        </h3>
+                                        <p>{r.abstract}</p>
+                                        <small className={styles.news_footer}>
+                                            <strong>By:</strong> {r.byline}
+                                            <strong>Published On:</strong>{" "}
+                                            {r.published_date}
+                                        </small>
                                     </div>
-                                )}
-                            </div>
-                        </a>
+
+                                    {media && (
+                                        <div className={styles.media}>
+                                            <Image
+                                                src={media.url}
+                                                alt={media.caption}
+                                                layout="fill"
+                                                objectFit="cover"
+                                            />
+                                        </div>
+                                    )}
+                                </div>
+                            </a>
+                        </Link>
                     );
                 })}
             </div>
